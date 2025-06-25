@@ -87,7 +87,7 @@ public class PlayerService {
      return null;
     }
 
-    @Transactional
+    @Transactional //makes sure the operation is transaction
     public void deletePlayer (String playerName){
         playerRepository.deleteByName(playerName);
     }
