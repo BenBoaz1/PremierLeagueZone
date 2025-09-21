@@ -14,18 +14,19 @@ public class PlayerController {
 
     private final PlayerService playerService;
 
-    @Autowired
+    @Autowired //
     public PlayerController(PlayerService playerService) {
         this.playerService = playerService;
     }
 
     @GetMapping
     public List<Player> getPlayers(
+            @RequestParam(required = false) String team,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String position,
             @RequestParam(required = false) String nationality
     ) {
-        if (position != null) {
+        if (team != null && position != null) {
             return playerService.getPlayerByPosition(position);
         } else if (name != null) {
             return playerService.getPlayerByPlayerName(name);

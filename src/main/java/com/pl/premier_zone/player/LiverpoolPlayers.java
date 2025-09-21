@@ -3,15 +3,15 @@ package com.pl.premier_zone.player;
 import jakarta.persistence.*;
 
 @Entity //this class is an entity and is mapped to a database table
-@Table(name = "Players", schema = "public")
-public class Player {
+@Table(name = "liverpool_players", schema = "public")
+public class LiverpoolPlayers {
 
 
-    @Id //primary key
-    @GeneratedValue (strategy = GenerationType.IDENTITY) //auto increment
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column( name = "name") //
+    @Column( name = "name")
     private String name;
     private int number;
     private String nationality;
@@ -23,10 +23,10 @@ public class Player {
     private int assists;
 
 
-    public Player(){
+    public LiverpoolPlayers(){
     }
 
-    public Player(String name, int number, String nationality, String position, double age, int apps, int minutes, int goals, int assists) {
+    public LiverpoolPlayers(String name, int number, String nationality, String position, double age, int apps, int minutes, int goals, int assists) {
         this.name = name;
         this.number = number;
         this.nationality = nationality;

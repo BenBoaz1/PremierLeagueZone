@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component
+@Component //
 
 public class PlayerService {
 
@@ -25,9 +25,9 @@ public class PlayerService {
         return playerRepository.findAll();
     }
 
-    public List<Player> getPlayerFromSquad(String playerName) {
-        return (List<Player>) playerRepository.findAll().stream()
-                .filter(player -> playerName.equals(player.getName()))
+    public List<Player> getPlayersFromTeam(String teamName) {
+        return playerRepository.findAll().stream()
+                .filter(player -> teamName.equals(player.getName()))
                 .collect(Collectors.toList());
     }
 
@@ -53,14 +53,13 @@ public class PlayerService {
                         .toLowerCase().contains(searchText.toLowerCase()))
                 .collect(Collectors.toList());
     }
-//
-//    public List<Player> getPlayerByTeamAndPosition(String team, String position) {
-//        return playerRepository.findAll().stream()
-//                .filter(player -> team.equals(player.getTeam()) &&
-//                        position.equals(player.getPosition()))
-//                                .collect(Collectors.toList());
-//    }
 
+public List <Player> getPlayerByTeamAndPosition (String teamName, String position){
+        return playerRepository.findAll().stream()
+                .filter(player -> teamName.equals(player.getName()) &&
+                        position.equals(player.getPosition()))
+                .collect(Collectors.toList());
+}
 
     public Player addPlayer(Player player) {
         playerRepository.save(player);
