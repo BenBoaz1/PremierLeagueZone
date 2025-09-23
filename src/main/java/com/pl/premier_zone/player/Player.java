@@ -3,7 +3,8 @@ package com.pl.premier_zone.player;
 import jakarta.persistence.*;
 
 @Entity //this class is an entity and is mapped to a database table
-@Table(name = "Players", schema = "public")
+@Table(name = "liverpool_players", schema = "public") // I need to update this so its not only for liverpool players
+
 public class Player {
 
 
